@@ -1,0 +1,2 @@
+# VanishPlugin
+Vanish plugin
