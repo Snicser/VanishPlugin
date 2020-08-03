@@ -1,0 +1,9 @@
+name: ${name}
+version: ${project.version}
+main: ${main}
+authors: ${author}
+description: ${description}
+
+commands:
+  vanish:
+    description: Wordt zichtbaar of ontzichtbaar
