@@ -1,8 +1,7 @@
 package nl.snicser.vanish.listeners;
 
 import nl.snicser.vanish.Vanish;
-import nl.snicser.vanish.commands.VanishCommand;
-import org.bukkit.Bukkit;
+import nl.snicser.vanish.handler.VanishHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -24,9 +23,9 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
 
-        Bukkit.getOnlinePlayers().forEach(player -> {
+        plugin.getServer().getOnlinePlayers().forEach(player -> {
 
-            if (VanishCommand.getInstance().getVanishPlayers().contains(player.getUniqueId())) {
+            if (VanishHandler.getInstance().getPlayersInVanish().contains(player.getUniqueId())) {
 
                 // Checking if the joining player has permissions to see the vanish player
                 if (joinedPlayer.hasPermission("vanish.see") || joinedPlayer.isOp()) {
@@ -35,6 +34,7 @@ public class PlayerJoinListener implements Listener {
                     joinedPlayer.hidePlayer(plugin, player);
                 }
             }
+
         });
     }
 }

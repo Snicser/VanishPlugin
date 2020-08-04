@@ -23,6 +23,8 @@ public class CommandRegister {
     }
 
     /**
+     * Register a command
+     *
      * @param command The command name
      * @param executor The class the implements CommandExecutor
      */

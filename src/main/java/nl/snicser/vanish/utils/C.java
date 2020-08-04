@@ -12,6 +12,8 @@ public final class C {
     }
 
     /**
+     * Translate color codes
+     *
      * @param input Text you want to translate with color codes
      * @return Text containing the ChatColor.COLOR_CODE color code character.
      */

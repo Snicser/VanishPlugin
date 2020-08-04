@@ -3,7 +3,6 @@ package nl.snicser.vanish.listeners.register;
 import nl.snicser.vanish.Vanish;
 import nl.snicser.vanish.listeners.PlayerJoinListener;
 import nl.snicser.vanish.listeners.PlayerQuitListener;
-import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 
 /**
@@ -22,13 +21,15 @@ public class EventRegister {
      */
     public void registerAll() {
         registerListener(new PlayerJoinListener(plugin));
-        registerListener(new PlayerQuitListener());
+        registerListener(new PlayerQuitListener(plugin));
     }
 
     /**
+     * Register a listener
+     *
      * @param listener The class the implements Listener
      */
     private void registerListener(Listener listener) {
-        Bukkit.getServer().getPluginManager().registerEvents(listener, plugin);
+        plugin.getServer().getPluginManager().registerEvents(listener, plugin);
     }
 }
