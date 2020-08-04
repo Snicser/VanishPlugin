@@ -1,6 +1,6 @@
 package nl.snicser.vanish.commands;
 
-import nl.snicser.vanish.Vanish;
+import nl.snicser.vanish.VanishPlugin;
 import nl.snicser.vanish.utils.C;
 import nl.snicser.vanish.utils.Constants;
 import nl.snicser.vanish.handler.VanishHandler;
@@ -11,10 +11,10 @@ import org.bukkit.entity.Player;
 
 public class VanishCommand implements CommandExecutor {
 
-    private final Vanish plugin;
+    private final VanishPlugin plugin;
     private final VanishHandler vanishHandler;
 
-    public VanishCommand(Vanish plugin) {
+    public VanishCommand(VanishPlugin plugin) {
         this.plugin = plugin;
         this.vanishHandler = new VanishHandler(plugin);
     }

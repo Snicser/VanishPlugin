@@ -1,6 +1,6 @@
 package nl.snicser.vanish.listeners;
 
-import nl.snicser.vanish.Vanish;
+import nl.snicser.vanish.VanishPlugin;
 import nl.snicser.vanish.handler.VanishHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -13,9 +13,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
  */
 public class PlayerJoinListener implements Listener {
 
-    private final Vanish plugin;
+    private final VanishPlugin plugin;
 
-    public PlayerJoinListener(Vanish plugin) {
+    public PlayerJoinListener(VanishPlugin plugin) {
         this.plugin = plugin;
     }
 

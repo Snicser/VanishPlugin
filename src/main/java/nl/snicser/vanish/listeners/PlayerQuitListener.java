@@ -1,6 +1,6 @@
 package nl.snicser.vanish.listeners;
 
-import nl.snicser.vanish.Vanish;
+import nl.snicser.vanish.VanishPlugin;
 import nl.snicser.vanish.handler.VanishHandler;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -12,9 +12,9 @@ import org.bukkit.event.player.PlayerQuitEvent;
  */
 public class PlayerQuitListener implements Listener {
 
-    private final Vanish plugin;
+    private final VanishPlugin plugin;
 
-    public PlayerQuitListener(Vanish plugin) {
+    public PlayerQuitListener(VanishPlugin plugin) {
         this.plugin = plugin;
     }
 

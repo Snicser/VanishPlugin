@@ -1,6 +1,6 @@
 package nl.snicser.vanish.commands.register;
 
-import nl.snicser.vanish.Vanish;
+import nl.snicser.vanish.VanishPlugin;
 import nl.snicser.vanish.commands.VanishCommand;
 import org.bukkit.command.CommandExecutor;
 
@@ -9,9 +9,9 @@ import org.bukkit.command.CommandExecutor;
  */
 public class CommandRegister {
 
-    private final Vanish plugin;
+    private final VanishPlugin plugin;
 
-    public CommandRegister(Vanish plugin) {
+    public CommandRegister(VanishPlugin plugin) {
         this.plugin = plugin;
     }
 

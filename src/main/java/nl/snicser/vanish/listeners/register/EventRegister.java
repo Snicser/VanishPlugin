@@ -1,6 +1,6 @@
 package nl.snicser.vanish.listeners.register;
 
-import nl.snicser.vanish.Vanish;
+import nl.snicser.vanish.VanishPlugin;
 import nl.snicser.vanish.listeners.PlayerJoinListener;
 import nl.snicser.vanish.listeners.PlayerQuitListener;
 import org.bukkit.event.Listener;
@@ -10,9 +10,9 @@ import org.bukkit.event.Listener;
  */
 public class EventRegister {
 
-    private final Vanish plugin;
+    private final VanishPlugin plugin;
 
-    public EventRegister(Vanish plugin) {
+    public EventRegister(VanishPlugin plugin) {
         this.plugin = plugin;
     }
 

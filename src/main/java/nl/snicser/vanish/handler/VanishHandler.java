@@ -1,6 +1,6 @@
 package nl.snicser.vanish.handler;
 
-import nl.snicser.vanish.Vanish;
+import nl.snicser.vanish.VanishPlugin;
 import nl.snicser.vanish.handler.interfaces.PlayerVanisher;
 import org.bukkit.entity.Player;
 
@@ -10,11 +10,11 @@ import java.util.UUID;
 
 public class VanishHandler implements PlayerVanisher {
 
-    private final Vanish plugin;
+    private final VanishPlugin plugin;
     private final List<UUID> playersInVanish;
     private static VanishHandler instance;
 
-    public VanishHandler(Vanish plugin) {
+    public VanishHandler(VanishPlugin plugin) {
         this.plugin = plugin;
         this.playersInVanish = new ArrayList<>();
         instance = this;
