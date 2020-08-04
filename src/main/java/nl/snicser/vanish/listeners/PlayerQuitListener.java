@@ -23,6 +23,6 @@ public class PlayerQuitListener implements Listener {
         Player player = event.getPlayer();
 
         plugin.getBossBar().removePlayer(player);
-        VanishHandler.getInstance().unvanish(player);
+        VanishHandler.getInstance().getPlayersInVanish().remove(player.getUniqueId());
     }
 }

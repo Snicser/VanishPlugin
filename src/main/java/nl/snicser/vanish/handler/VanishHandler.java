@@ -1,50 +1,47 @@
 package nl.snicser.vanish.handler;
 
 import nl.snicser.vanish.VanishPlugin;
-import nl.snicser.vanish.handler.interfaces.IPlayerVanisher;
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
-public class VanishHandler implements IPlayerVanisher {
+public class VanishHandler {
 
     private final VanishPlugin plugin;
-    private final List<UUID> playersInVanish;
+    private final Set<UUID> playersInVanish;
     private static VanishHandler instance;
 
     public VanishHandler(VanishPlugin plugin) {
         this.plugin = plugin;
-        this.playersInVanish = new ArrayList<>();
+        this.playersInVanish = new HashSet<>();
         instance = this;
     }
 
     /**
+     * Vanish a player
+     *
      * @param player Player to hide
      * @return True if player vanished
      */
-    @Override
     public boolean vanish(Player player) {
         playersInVanish.add(player.getUniqueId());
 
         plugin.getServer().getOnlinePlayers().forEach(onlinePlayer -> {
 
-            if (!onlinePlayer.hasPermission("vanish.see") || !onlinePlayer.isOp()) {
+            if (onlinePlayer.canSee(player)) {
                 onlinePlayer.hidePlayer(plugin, player);
-            } else {
-                onlinePlayer.showPlayer(plugin, player);
             }
-        });
 
+        });
         return true;
     }
 
     /**
+     * Unvanish a player
+     *
      * @param player Player to show
      * @return True if player unvanished
      */
-    @Override
     public boolean unvanish(Player player) {
         playersInVanish.remove(player.getUniqueId());
         plugin.getServer().getOnlinePlayers().forEach(onlinePlayer -> onlinePlayer.showPlayer(plugin, player));
@@ -54,7 +51,7 @@ public class VanishHandler implements IPlayerVanisher {
     /**
      * @return A list of all players that are in vanish
      */
-    public List<UUID> getPlayersInVanish() {
+    public Set<UUID> getPlayersInVanish() {
         return playersInVanish;
     }
 

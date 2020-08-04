@@ -7,6 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.util.UUID;
+
 
 /**
  * This class handles everything when a player joins the server
@@ -23,18 +25,12 @@ public class PlayerJoinListener implements Listener {
     public void onPlayerJoin(PlayerJoinEvent event) {
         Player joinedPlayer = event.getPlayer();
 
-        plugin.getServer().getOnlinePlayers().forEach(player -> {
+        for (UUID uuid : VanishHandler.getInstance().getPlayersInVanish()) {
+            Player player = plugin.getServer().getPlayer(uuid);
 
-            if (VanishHandler.getInstance().getPlayersInVanish().contains(player.getUniqueId())) {
-
-                // Checking if the joining player has permissions to see the vanish player
-                if (joinedPlayer.hasPermission("vanish.see") || joinedPlayer.isOp()) {
-                    joinedPlayer.showPlayer(plugin, player);
-                } else {
-                    joinedPlayer.hidePlayer(plugin, player);
-                }
+            if (player != null) {
+                VanishHandler.getInstance().vanish(player);
             }
-
-        });
+        }
     }
 }
