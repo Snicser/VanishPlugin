@@ -23,8 +23,6 @@ public class PlayerJoinListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(PlayerJoinEvent event) {
-        Player joinedPlayer = event.getPlayer();
-
         for (UUID uuid : VanishHandler.getInstance().getPlayersInVanish()) {
             Player player = plugin.getServer().getPlayer(uuid);
 
