@@ -1,14 +1,14 @@
 package nl.snicser.vanish.handler;
 
 import nl.snicser.vanish.VanishPlugin;
-import nl.snicser.vanish.handler.interfaces.PlayerVanisher;
+import nl.snicser.vanish.handler.interfaces.IPlayerVanisher;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class VanishHandler implements PlayerVanisher {
+public class VanishHandler implements IPlayerVanisher {
 
     private final VanishPlugin plugin;
     private final List<UUID> playersInVanish;
